@@ -5,3 +5,4 @@ class ImageAssets {
   static const String accountIcon = 'assets/icons/account_icon.png' ;
 
 }
+

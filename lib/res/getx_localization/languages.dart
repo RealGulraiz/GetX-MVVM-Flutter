@@ -9,7 +9,7 @@ class Languages extends Translations {
     'en_US': {
       'email_hint' : 'Enter Email' ,
       'internet_exception' : "We're unable to show results.\nPlease check your data\n connection." ,
-
+      'general_exception' : "We're unable to process your request. \nPlease try again." ,
     },
     'ur_PK': {
       'email_hint' : 'ای میل لکھیں'
