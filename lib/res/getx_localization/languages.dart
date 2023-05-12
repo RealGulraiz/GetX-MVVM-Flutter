@@ -7,9 +7,13 @@ class Languages extends Translations {
   @override
   Map<String, Map<String, String>> get keys => {
     'en_US': {
-      'email_hint' : 'Enter Email' ,
       'internet_exception' : "We're unable to show results.\nPlease check your data\n connection." ,
       'general_exception' : "We're unable to process your request. \nPlease try again." ,
+      'welcome_back': "Welcome\nBack" ,
+      'login': 'Login' ,
+      'email_hint': 'Email' ,
+      'password_hint': 'Password' ,
+
     },
     'ur_PK': {
       'email_hint' : 'ای میل لکھیں'

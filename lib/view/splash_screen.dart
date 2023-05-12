@@ -6,6 +6,7 @@ import 'package:getx_mvvm/res/components/internet_exceptions_widget.dart';
 import 'package:getx_mvvm/res/components/round_button.dart';
 import 'package:getx_mvvm/utils/utils.dart';
 import 'package:get/get.dart';
+import 'package:getx_mvvm/view_models/services/splash_services.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -15,21 +16,34 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+
+  SplashServices splashServices = SplashServices() ;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    splashServices.isLogin();
+  }
+
   @override
   Widget build(BuildContext context) {
     // return InternetExceptionWidget();
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text('email_hint'.tr),
-      ),
-      body: Column(
-        children: [
-          RoundButton(title: 'Login', onPress: () {}, width: 200, loading: true,),
-          RoundButton(title: 'SignUp', onPress: () {}, width: 200,),
+      backgroundColor: Colors.teal,
+      body: Center(child: Text('welcome_back'.tr, textAlign: TextAlign.center,)),
 
-        ],
-      ),
+
+      // appBar: AppBar(
+      //   title: Text('email_hint'.tr),
+      // ),
+      // body: Column(
+      //   children: [
+      //     RoundButton(title: 'Login', onPress: () {}, width: 200, loading: true,),
+      //     RoundButton(title: 'SignUp', onPress: () {}, width: 200,),
+      //   ],
+      // ),
 
       // body: GeneralExceptionWidget(onPress: (){ },),
 
