@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx_mvvm/res/components/round_button.dart';
 import 'package:getx_mvvm/utils/utils.dart';
+import 'package:getx_mvvm/view/login/widgets/input_email_widget.dart';
+import 'package:getx_mvvm/view/login/widgets/input_password_widget.dart';
+import 'package:getx_mvvm/view/login/widgets/login_button_widget.dart';
 import 'package:getx_mvvm/view_models/controller/login_view_model.dart';
 
 class LoginView extends StatefulWidget {
@@ -30,59 +33,19 @@ class _LoginViewState extends State<LoginView> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
-
           children: [
             Form(
               key: _formkey,
               child: Column(
                 children: [
-                  TextFormField(
-                    controller: loginVM.emailController.value,
-                    focusNode: loginVM.emailFocusNode.value,
-                    validator: (value){
-                      if(value!.isEmpty){
-                        Utils.snackBar('Email', 'Enter email');
-                      }
-                    },
-                    onFieldSubmitted: (value){
-                      Utils.fieldFocusChange(context, loginVM.emailFocusNode.value, loginVM.passwordFocusNode.value);
-                    },
-                    decoration: InputDecoration(
-                      hintText: 'email_hint'.tr ,
-                      border: OutlineInputBorder(),
-                    ),
-                  ),
+                  InputEmailWidget(),
                   const SizedBox(height: 20,),
-                  TextFormField(
-                    controller: loginVM.passwordController.value,
-                    focusNode: loginVM.passwordFocusNode.value,
-                    obscureText: true,
-                    validator: (value){
-                      if(value!.isEmpty){
-                        Utils.snackBar('Password', 'Enter password');
-                      }
-                    },
-                    onFieldSubmitted: (value){
-                    },
-                    decoration: InputDecoration(
-                      hintText: 'password_hint'.tr ,
-                      border: OutlineInputBorder(),
-                    ),
-                  ),
+                  InputPasswordWidget(),
                 ],
               ),
             ),
             const SizedBox(height: 40,),
-            Obx(() => RoundButton(
-              title: 'login'.tr,
-              width: 200,
-              loading: loginVM.loading.value,
-              onPress: (){
-                if(_formkey.currentState!.validate()) {
-                  loginVM.loginApi();
-                }
-              } ,
-            )),
+            LoginButtonWidget(formkey: _formkey,),
           ],
         ),
       ),
